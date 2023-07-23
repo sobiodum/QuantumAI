@@ -14,7 +14,7 @@ from pyfolio import timeseries
 from quantumai.config import config
 from quantumai.config.func import date2str
 from quantumai.config.func import str2date
-from quantumai.preprocessor.yahoodownloader import YahooDownloader
+from quantumai.preprocessors.yahoodownloader import YahooDownloader
 
 
 def get_daily_return(df, value_col_name="account_value"):
