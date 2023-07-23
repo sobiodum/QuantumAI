@@ -17,7 +17,7 @@ from stable_baselines3.common.vec_env import DummyVecEnv
 
 from quantumai.config import config
 from quantumai.env.env_stocktrading import StockTradingEnv
-from quantumai.preprocessor.preprocessors import data_split
+from quantumai.preprocessors.preprocessors import data_split
 
 MODELS = {"a2c": A2C, "ddpg": DDPG, "td3": TD3, "sac": SAC, "ppo": PPO}
 
