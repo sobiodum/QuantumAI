@@ -7,7 +7,7 @@ import numpy as np
 import pandas as pd
 from stockstats import StockDataFrame as Sdf
 
-import config
+from quantumai.config import config
 from .yahoodownloader import YahooDownloader
 
 
