@@ -11,10 +11,10 @@ import pandas as pd
 import pyfolio
 from pyfolio import timeseries
 
-from config import config
-from data_processors.func import date2str
-from data_processors.func import str2date
-from preprocessor.yahoodownloader import YahooDownloader
+from quantumai.config import config
+from quantumai.config.func import date2str
+from quantumai.config.func import str2date
+from quantumai.preprocessor.yahoodownloader import YahooDownloader
 
 
 def get_daily_return(df, value_col_name="account_value"):

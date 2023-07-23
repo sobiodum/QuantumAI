@@ -8,7 +8,7 @@ import pandas as pd
 from stockstats import StockDataFrame as Sdf
 
 from quantumai.config import config
-from .yahoodownloader import YahooDownloader
+from quantumai.preprocessors.yahoodownloader import YahooDownloader
 
 
 def load_dataset(*, file_name: str) -> pd.DataFrame:

@@ -3,9 +3,9 @@ from __future__ import annotations
 import numpy as np
 import pandas as pd
 
-from data_processors.processor_alpaca import AlpacaProcessor as Alpaca
-from data_processors.processor_wrds import WrdsProcessor as Wrds
-from data_processors.processor_yahoofinance import (
+from quantumai.preprocessors.processor_alpaca import AlpacaProcessor as Alpaca
+from quantumai.preprocessors.processor_wrds import WrdsProcessor as Wrds
+from quantumai.preprocessors.processor_yahoofinance import (
     YahooFinanceProcessor as YahooFinance,
 )
 
