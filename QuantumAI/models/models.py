@@ -15,9 +15,9 @@ from stable_baselines3.common.noise import NormalActionNoise
 from stable_baselines3.common.noise import OrnsteinUhlenbeckActionNoise
 from stable_baselines3.common.vec_env import DummyVecEnv
 
-from quantumai.config import config
-from quantumai.env.env_stocktrading import StockTradingEnv
-from quantumai.preprocessors.preprocessors import data_split
+from QuantumAI.config import config
+from QuantumAI.env.env_stocktrading import StockTradingEnv
+from QuantumAI.preprocessors.preprocessors import data_split
 
 MODELS = {"a2c": A2C, "ddpg": DDPG, "td3": TD3, "sac": SAC, "ppo": PPO}
 

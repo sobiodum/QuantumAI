@@ -8,15 +8,6 @@ import optuna
 def optimize(e_validate_gym,env_train, n_trial_runs=10):
     def objective(trial):
         start_time = time.time()  # Start the timer
-        # hyperparameters
-        # gamma = trial.suggest_categorical('gamma', [0.99, 0.995, 0.999, 0.9999])
-        # n_steps = trial.suggest_categorical('n_steps', [5, 10, 20, 50, 100])
-        # ent_coef = trial.suggest_loguniform('ent_coef', 0.00001, 0.1)
-        # learning_rate = trial.suggest_loguniform('learning_rate', 0.00001, 0.1)
-        # vf_coef = trial.suggest_loguniform('vf_coef', 0.1, 0.9)
-        # max_grad_norm = trial.suggest_categorical('max_grad_norm', [0.3, 0.5, 0.7, 0.9, 1])
-        # gae_lambda = trial.suggest_categorical('gae_lambda', [0.9, 0.92, 0.95, 0.98, 1.0])
-        #Hier mit floating, dauert länger
         learning_rate = trial.suggest_float("learning_rate", 1e-5, 1e-3, log=True)
         n_steps = trial.suggest_int("n_steps", 5, 50)
         gamma = trial.suggest_float("gamma", 0.9, 0.9999, log=True)
