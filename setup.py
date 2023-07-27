@@ -17,7 +17,8 @@ setup(
         "pyportfolioopt>=1",
         "ray[default,tune]>=2",
         "scikit-learn>=1",
-        "stable-baselines3>=2.0.0a5[extra]",
+        # "stable-baselines3>=2.0.0a5[extra]",
+        "stable-baselines3[extra]"
         "stockstats>=0.5",
         "wrds>=3",
         "yfinance>=0.2",
