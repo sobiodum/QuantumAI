@@ -1,47 +1,47 @@
-from __future__ import annotations
-
-from setuptools import find_packages
-from setuptools import setup
-
-# Read requirements.txt, ignore comments
-try:
-    REQUIRES = list()
-    f = open("requirements.txt", "rb")
-    for line in f.read().decode("utf-8").split("\n"):
-        line = line.strip()
-        if "#" in line:
-            line = line[: line.find("#")].strip()
-        if line:
-            REQUIRES.append(line)
-except FileNotFoundError:
-    print("'requirements.txt' not found!")
-    REQUIRES = list()
+from setuptools import setup, find_packages
 
 setup(
     name="QuantumAI",
-    version="0.3.6",
-    include_package_data=True,
-    author="fff",
-    author_email="sss@gmail.com",
-    url="https://github.com/sobiodum/QuantumAI",
+    version="1.0",
+    description="Des",
+    author="FK",
     license="MIT",
+    url="https://github.com/sobiodum/QuantumAI",
     packages=find_packages(),
-    description="tbd",
-    long_description="tbd",
-
+    install_requires=[
+        "alpaca-trade-api>=3",
+        "ccxt>=3",
+        "exchange-calendars>=4",
+        "jqdatasdk>=1",
+        "pyfolio>=0.9",
+        "pyportfolioopt>=1",
+        "ray[default,tune]>=2",
+        "scikit-learn>=1",
+        "stable-baselines3>=2.0.0a5[extra]",
+        "stockstats>=0.5",
+        "wrds>=3",
+        "yfinance>=0.2",
+        "optuna"
+    ],
+    extras_require={
+        "dev": [
+            "black>=23",
+            "isort>=5",
+            "jupyter>=1",
+            "mypy>=1",
+            "pandas-stubs>=2",
+        ],
+    },
     classifiers=[
-        # Trove classifiers
-        # Full list: https://pypi.python.org/pypi?%3Aaction=list_classifiers
         "License :: OSI Approved :: MIT License",
         "Programming Language :: Python",
         "Programming Language :: Python :: 3",
         "Programming Language :: Python :: 3.7",
         "Programming Language :: Python :: 3.8",
         "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
         "Programming Language :: Python :: Implementation :: CPython",
         "Programming Language :: Python :: Implementation :: PyPy",
     ],
-    keywords="..",
-    platform=["any"],
-    python_requires=">=3.7",
+    keywords=["", ""],
 )
