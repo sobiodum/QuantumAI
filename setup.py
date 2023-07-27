@@ -7,7 +7,7 @@ setup(
     author="FK",
     license="MIT",
     url="https://github.com/sobiodum/QuantumAI",
-    packages=find_packages(),
+    packages=find_packages(include=['QuantumAI', 'QuantumAI.*']),
     install_requires=[
         "alpaca-trade-api>=3",
         "ccxt>=3",
