@@ -7,6 +7,12 @@ import pandas as pd
 import yfinance as yf
 
 
+class Test:
+    def __init__(self):
+       pass
+    def test_func(self):
+        print("works")
+
 class YahooDownloader:
     """Provides methods for retrieving daily stock data from
     Yahoo Finance API
@@ -26,12 +32,15 @@ class YahooDownloader:
         Fetches data from yahoo API
 
     """
+    
 
     def __init__(self, start_date: str, end_date: str, ticker_list: list):
         self.start_date = start_date
         self.end_date = end_date
         self.ticker_list = ticker_list
 
+
+    
     def fetch_data(self, proxy=None) -> pd.DataFrame:
         """Fetches data from Yahoo API
         Parameters

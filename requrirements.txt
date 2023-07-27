@@ -54,3 +54,9 @@ wrds
 
 # market data & paper trading API
 yfinance
+
+#backtesting
+optuna
+
+#savefiles
+joblip

@@ -339,3 +339,16 @@ def plot_return_from_csv(
         num_days_xticks,
         xrotation,
     )
+
+def show_weight_distribution(df_actions):
+    fig, ax = plt.subplots(figsize=(10, 6))
+
+    # assuming actions_df is your DataFrame
+    ax.stackplot(df_actions.index, df_actions.T, labels=df_actions.columns)
+
+    ax.set_title('Portfolio Allocation Over Time')
+    ax.set_xlabel('Date')
+    ax.set_ylabel('Allocation')
+    ax.legend(loc='upper left')
+
+    plt.show()

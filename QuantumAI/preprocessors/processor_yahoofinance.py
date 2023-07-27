@@ -78,6 +78,53 @@ class YahooFinanceProcessor:
 
         return time_interval
 
+    def download_data_flo(
+        self,
+        ticker_list: list[str],
+        start_date: str,
+        end_date: str,
+        time_interval: str,
+        proxy: str | dict = None,
+    ) -> pd.DataFrame:
+        # time_interval = self.convert_interval(time_interval)
+        time_interval = "1d"
+
+        self.start = start_date
+        self.end = end_date
+        self.time_interval = "1d"
+
+        # Download and save the data in a pandas DataFrame
+        start_date = pd.Timestamp(start_date)
+        end_date = pd.Timestamp(end_date)
+        delta = timedelta(days=1)
+        data_df = pd.DataFrame()
+        for tic in ticker_list:
+
+            temp_df = yf.download(
+                tic,
+                start=start_date,
+                end=end_date,
+                interval=self.time_interval,
+                proxy=proxy,
+            )
+            temp_df["tic"] = tic
+            data_df = pd.concat([data_df, temp_df])
+       
+
+        data_df = data_df.reset_index().drop(columns=["Adj Close"])
+        # convert the column names to match processor_alpaca.py as far as poss
+        data_df.columns = [
+            "timestamp",
+            "open",
+            "high",
+            "low",
+            "close",
+            "volume",
+            "tic",
+        ]
+        print(data_df)
+
+        return data_df
     def download_data(
         self,
         ticker_list: list[str],

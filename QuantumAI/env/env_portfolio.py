@@ -101,15 +101,19 @@ class StockPortfolioEnv(gym.Env):
             high=np.inf,
             shape=(self.state_space + len(self.tech_indicator_list), self.state_space),
         )
+        print("self.oberservation_space.shape",self.observation_space.shape)
 
         # load data from a pandas dataframe
         self.data = self.df.loc[self.day, :]
+        print("self.data",self.data)
         self.covs = self.data["cov_list"].values[0]
         self.state = np.append(
             np.array(self.covs),
             [self.data[tech].values.tolist() for tech in self.tech_indicator_list],
             axis=0,
         )
+        print("self.stape.shape",self.state.shape)
+       
         self.terminal = False
         self.turbulence_threshold = turbulence_threshold
         # initalize state: inital portfolio return + individual stock return + individual weights
@@ -177,6 +181,8 @@ class StockPortfolioEnv(gym.Env):
                 [self.data[tech].values.tolist() for tech in self.tech_indicator_list],
                 axis=0,
             )
+            print("self.state.shape in next step else:",self.state.shape)
+            print("self.stape",self.state)
             # print(self.state)
             # calcualte portfolio return
             # individual stocks' return * weight
@@ -215,6 +221,7 @@ class StockPortfolioEnv(gym.Env):
             [self.data[tech].values.tolist() for tech in self.tech_indicator_list],
             axis=0,
         )
+        print("self.state.shape in reset:",self.state.shape)
         self.portfolio_value = self.initial_amount
         # self.cost = 0
         # self.trades = 0
